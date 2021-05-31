@@ -1,0 +1,30 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "team-profile-generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.0",
+    "jest": "^27.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cantalorian/team-profile-generator.git"
+  },
+  "keywords": [
+    "team-profile-generator"
+  ],
+  "author": "James Canter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cantalorian/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/Cantalorian/team-profile-generator#readme"
+}
