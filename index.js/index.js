@@ -12,7 +12,7 @@ let teamArr = [];
 function startingPrompt() {
   inquirer.prompt([
     {
-      message: "Wlecome to the Team Generator. Please write your team name:",
+      message: "Welcome to the Team Generator. Please write your team name:",
       name: "teamname"
     }
   ])
@@ -125,3 +125,74 @@ function addIntern() {
     addTeamMembers()
   });
 };
+
+function compileTeam() {
+  console.log("//////////You've done it!!! Here is your team.////////")
+
+  const htmlArray = []
+  const htmlBeginning = `
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>${teamArr[0]}</title>
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+  ${style}
+  </style>
+</head>
+<body>
+  <div class="banner-bar">
+      <h1>${teamArr[0]}</h1>
+  </div>
+  <div class="card-container">
+  `
+  htmlArray.push(htmlBeginning);
+
+  for (let i = 1; i < teamArr.length; i++) {
+      let object = `
+      <div class="member-card">
+          <div class="card-top">
+              <h2>${teamArr[i].name}</h2>
+              <h2>${teamArr[i].title}</h2>
+          </div>
+          <div class="card-bottom">
+              <p>Employee ID: ${teamArr[i].id}</p>
+              <p>Email: <a href="mailto:${teamArr[i].email}">${teamArr[i].email}</a>></p>
+      `
+      if (teamArr[i].officeNumber) {
+          object += `
+          <p>${teamArr[i].officeNumber}</p>
+          `
+      }
+      if (teamArr[i].github) {
+          object += `
+          <p>GitHub: <a href="https://github.com/${teamArr[i].github}">${teamArr[i].github}</a></p>
+          `
+      }
+      if (teamArr[i].school) {
+          object += `
+          <p>School: ${teamArr[i].school}</p>
+          `
+      }
+      object += `
+      </div>
+      </div>
+      `
+      htmlArray.push(object)
+  }
+  const htmlEnd = `
+  </div>
+  </body>
+  </html>
+  `
+  htmlArray.push(htmlEnd);
+
+  fs.writeFile(`../generated-html/${teamArr[0]}.html`, htmlArray.join(""), function (err) {
+
+  })
+}
+
+startingPrompt();
