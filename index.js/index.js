@@ -131,7 +131,7 @@ function compileTeam() {
 
   const htmlArray = []
   const htmlBeginning = `
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -140,7 +140,7 @@ function compileTeam() {
   <title>${teamArr[0]}</title>
   <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
-  ${style}
+    ${style}
   </style>
 </head>
 <body>
@@ -182,7 +182,8 @@ function compileTeam() {
       </div>
       `
       htmlArray.push(object)
-  }
+  };
+
   const htmlEnd = `
   </div>
   </body>
@@ -190,7 +191,7 @@ function compileTeam() {
   `
   htmlArray.push(htmlEnd);
 
-  fs.writeFile(`../generated-html/${teamArr[0]}.html`, htmlArray.join(""), function (err) {
+  fs.writeFile(`${teamArr[0]}.html`, htmlArray.join(""), function (err) {
 
   })
 }
