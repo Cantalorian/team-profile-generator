@@ -30,7 +30,7 @@ function addManager() {
       name: "name"
     },
     {
-      message: "What is your team manger's email address?",
+      message: "What is your team manager's email address?",
       name: "email"
     },
     {
